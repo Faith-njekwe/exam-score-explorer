@@ -1,0 +1,51 @@
+:root {
+  color-scheme: light;
+  --surface: #fcfcfb;
+  --page: #f3f3f1;
+  --text: #0b0b0b;
+  --text-2: #52514e;
+  --grid: #e4e3df;
+  --series-1: #2a78d6;   /* blue   – primary / courses */
+  --series-2: #eb6834;   /* orange – study methods */
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    color-scheme: dark;
+    --surface: #1a1a19;
+    --page: #121211;
+    --text: #f0efec;
+    --text-2: #c3c2b7;
+    --grid: #333331;
+    --series-1: #3987e5;
+    --series-2: #d95926;
+  }
+}
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--page); color: var(--text);
+       font: 14px/1.4 system-ui, -apple-system, "Segoe UI", sans-serif; }
+header, .filters, main { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
+header { padding-top: 24px; }
+h1 { margin: 0; font-size: 24px; }
+.sub { margin: 4px 0 16px; color: var(--text-2); }
+.filters { display: flex; gap: 16px; align-items: center; flex-wrap: wrap; margin-bottom: 16px; }
+.filters select { margin-left: 6px; padding: 6px 8px; border-radius: 6px;
+  border: 1px solid var(--grid); background: var(--surface); color: var(--text); font: inherit; }
+.count { color: var(--text-2); margin-left: auto; }
+main { display: grid; grid-template-columns: repeat(auto-fit, minmax(480px, 1fr)); gap: 16px; padding-bottom: 40px; }
+.card { background: var(--surface); border-radius: 10px; padding: 16px; transition: opacity .15s; }
+.card.wide { grid-column: 1 / -1; }
+.card h2 { margin: 0 0 8px; font-size: 15px; }
+.hint { font-weight: 400; color: var(--text-2); font-size: 12px; }
+.legend { display: flex; gap: 16px; color: var(--text-2); margin-bottom: 6px; }
+.sw { display: inline-block; width: 10px; height: 10px; border-radius: 2px; margin-right: 6px; }
+svg text { fill: var(--text-2); font-size: 12px; }
+svg .grid line { stroke: var(--grid); }
+svg .grid .domain, svg .axis .domain { display: none; }
+svg .axis line { stroke: var(--grid); }
+svg .axis-title { font-size: 12px; fill: var(--text-2); }
+#network { height: 460px; border-radius: 8px; }
+#tooltip { position: fixed; pointer-events: none; opacity: 0; transition: opacity .1s;
+  background: var(--surface); color: var(--text); border: 1px solid var(--grid);
+  border-radius: 6px; padding: 6px 10px; box-shadow: 0 4px 14px rgba(0,0,0,.18); z-index: 10; }
+#tooltip b { font-size: 15px; display: block; }
+#tooltip span { color: var(--text-2); font-size: 12px; }

@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Exam Score Explorer · D3.js + vis.js</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>Exam Score Explorer</h1>
+    <p class="sub">20,000 students · built with D3.js (charts) and vis.js (network)</p>
+  </header>
+
+  <!-- Filters: one row above the charts, scoping everything below -->
+  <section class="filters" aria-label="Filters">
+    <label>Gender <select id="f-gender"></select></label>
+    <label>Study method <select id="f-method"></select></label>
+    <span id="count" class="count" aria-live="polite"></span>
+  </section>
+
+  <main>
+    <section class="card">
+      <h2>Average exam score by course</h2>
+      <div id="chart-course"></div>
+    </section>
+
+    <section class="card">
+      <h2>Study hours vs exam score</h2>
+      <div id="chart-hours"></div>
+    </section>
+
+    <section class="card">
+      <h2>Attendance vs exam score</h2>
+      <div id="chart-attendance"></div>
+    </section>
+
+    <section class="card wide">
+      <h2>Course ↔ study method network <span class="hint">(vis.js · edge width = students, label = avg score)</span></h2>
+      <div class="legend">
+        <span><i class="sw" style="background:var(--series-1)"></i>Course</span>
+        <span><i class="sw" style="background:var(--series-2)"></i>Study method</span>
+      </div>
+      <div id="network"></div>
+    </section>
+  </main>
+
+  <div id="tooltip" role="status"></div>
+
+  <script src="lib/d3.min.js"></script>
+  <script src="lib/vis-network.min.js"></script>
+  <script src="js/charts.js"></script>
+  <script src="js/network.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
